@@ -39,22 +39,11 @@ import java.util.Scanner;
                     """;
             System.out.println(intro);
             String Listzz = Rambo.nextLine();
-            if(Listzz.equals("Stats") || Listzz.equals("<Stats>"))
+            if(Listzz.equals("Stats") || Listzz.equals("<Stats>") || Listzz.equals("stats") || Listzz.equals("<stats>"))
             {
-                String PlAttck_list = """
-                                                                        Moves List:
-                                                    Player hp:            100 hp
-                                                                Accuracy            Damage
-                                                    Attack 1:     90%                5 hp
-                                                    Attack 2:     75%               10 hp
-                                                    Attack 3:     60%               15 hp
-                                                    Attack 4:     50%               20 hp
-                                              Special Attack:      5%               90 hp
-                                                        Press enter to start the fight
-
-                        """;
-                System.out.print(PlAttck_list);
-                Rambo.nextLine();
+                Stats();
+                System.out.println("If you wish to display your stats at anytime during the fight just enter <Stats> again");
+                System.out.println("Press enter to start fight");
             }
 
             //Första matchen
@@ -79,7 +68,7 @@ import java.util.Scanner;
                 if(Player_HP<=0)
                 {
                     Player_HP = 100;
-                    Fed_HP = 100;
+                    Opp_HP = 100;
 
                     System.out.print("Game Over!!!");
                     Rambo.nextLine();
@@ -135,7 +124,7 @@ import java.util.Scanner;
                       ------------------------------------------------------------------------------------------
                                 Why? Honestly why? you could've just shot him and then take his money
                             But for whatever reason you've decided to go down the path of serial killers
-                                                        Poor Arda Anyways 
+                                                        Poor Arda! Anyways, 
                             You've now robbed him and proceeded to let him run away before you kill him
                             Once you're sure he's dead you immedeatly start running away to escape the scene   
                        As you start slowing down you clock a police officer walking towards you at a steady pace
@@ -147,11 +136,18 @@ import java.util.Scanner;
                 System.out.println(SQ_C);
             }
             //Scenario B
+            akncjdnv
             else
             {
                 System.out.println("I knew you were a pussio");
                 String SQ_B = """
-                        
+
+                                            You are a Puss
+                            You have absolutely no cojones whatsoever... Anyways,
+                You watch him run away with his phone in his hand and you run the other way
+                    The next day you 
+                            
+                            
                         """;
                 System.out.println(SQ_B);
 
@@ -268,43 +264,38 @@ import java.util.Scanner;
                         System.out.println("Special Attack Failed!");
                         return false;
                     }
-                    
                 }  
     
-                else if(moves.equals("Attack 1"))
+                else if(moves.equals("Attack 1") || moves.equals("attack 1"))
                 {
                     return PlAttack(toffla, 10, 5);
                 }
     
-                else if(moves.equals("Attack 2"))
+                else if(moves.equals("Attack 2") || moves.equals("attack 2"))
                 {
                     return PlAttack(toffla, 25, 10);
                 }
     
-                else if(moves.equals("Attack 3"))
+                else if(moves.equals("Attack 3") || moves.equals("attack 3"))
                 {
                     return PlAttack(toffla, 40, 15);
                 }
     
-                else if(moves.equals("Attack 4"))
+                else if(moves.equals("Attack 4") || moves.equals("attack 4"))
                 {
                     return PlAttack(toffla, 50, 20);
                 }
-    
-                else if(moves.equals("Defence 1"))
+                else if(moves.equals("Stats") || moves.equals("<Stats>") || moves.equals("stats") || moves.equals("<stats>"))
                 {
-                    System.out.println("Defence successful");
-                    Player_HP+=5;
+                    Stats();
+                    continue;
                 }
                 else
                 {
                     System.out.println("Invalid Input!!!");
 
                     continue;
-                }
-    
-                return false;
-
+                }   
             } 
 
         }
@@ -688,6 +679,24 @@ import java.util.Scanner;
 
                     return false;
                 }
+        }
+        public static String Stats()
+        {
+            String PlAttck_list = """
+                                                                        Moves List:
+                                                    Player hp:            100 hp
+                                                                Accuracy            Damage
+                                                    Attack 1:     90%                5 hp
+                                                    Attack 2:     75%               10 hp
+                                                    Attack 3:     60%               15 hp
+                                                    Attack 4:     50%               20 hp
+                                              Special Attack:      5%               90 hp
+                                                            Press enter to continue
+
+                        """;
+                System.out.print(PlAttck_list);
+                Laeeb.nextLine();
+                return PlAttck_list;
         }
         public static void ClearConsole()
         {
