@@ -136,18 +136,20 @@ import java.util.Scanner;
                 System.out.println(SQ_C);
             }
             //Scenario B
-            akncjdnv
             else
             {
                 System.out.println("I knew you were a pussio");
                 String SQ_B = """
-
-                                            You are a Puss
-                            You have absolutely no cojones whatsoever... Anyways,
-                You watch him run away with his phone in his hand and you run the other way
-                    The next day you 
-                            
-                            
+                    --------------------------------------------------------------------------------
+                                                    You are a Puss
+                                    You have absolutely no cojones whatsoever... Anyways,
+                        You watch him run away with his phone in his hand and you run the other way
+                    The next day you hear a loud knock on your door -It's the police! Open the door!
+                        They storm the house and see you running out the backdoor into your backyard
+                                You try jump over the fence and one of the feds follow
+                        You run out into the stret and turn in between to houses into a back alley
+                                    You now have no choice but to fight the officer
+                    --------------------------------------------------------------------------------
                         """;
                 System.out.println(SQ_B);
 
@@ -189,6 +191,7 @@ import java.util.Scanner;
                     
                         Congratulations!!! You've completed the game!!!
                    You are now officially the king of the southside of Rondua
+                   
 
                     """;
             System.out.println(End);
@@ -217,9 +220,7 @@ import java.util.Scanner;
         {
             /*While loop så att ingen ska kunna skriva ex: banan och kunna fortsätta 
             utan det ska bli invalid input och man ska starta om från "Player Move: "*/
-            while(true)
-            {
-                String[] Kuk = new String[2];
+            String[] Kuk = new String[2];
 
                 if(begining)
                 {
@@ -243,7 +244,8 @@ import java.util.Scanner;
     
                     begining=false;
                 }
-                
+            while(true)
+            {
                 System.out.print("Player Move: ");
                 String moves = Laeeb.nextLine();
     
@@ -482,15 +484,42 @@ import java.util.Scanner;
         //Metod för Spelarens Attacker mot andra botten aka The Fed
         static boolean Player_Attacks2()
         {
-            System.out.print("Player Move: ");
-            String moves = Laeeb.nextLine();
-            double toffla = Math.random()*100;
+            String[] Kuk = new String[2];
+            if(begining)
+            {
+                while (true)
+                {
+                    try
+                    {
+                        System.out.print("Välj vilket nummer som ska vara första Special Attacken: ");   
+                        SP1 = Laeeb.nextInt();
+                        Laeeb.nextLine();
+                        System.out.print("Välj vilket nummer som ska vara andra Special Attacken: ");
+                        SP2 = Laeeb.nextInt();
+                        Laeeb.nextLine();
+                        Kuk = Array_SP(SP1, SP2);
+                        break;
+                    }
+                    catch (InputMismatchException ex) {
+                        Laeeb.nextLine();
+                        continue;
+                    }
+                }
 
-            if(moves.equals("Special Attack"))
+                begining=false;
+            }
+            while(true)
             {
 
-                if(95<=toffla && toffla<=100)
+                System.out.print("Player Move: ");
+                String moves = Laeeb.nextLine();
+                double toffla = Math.random()*100;
+                
+                if(moves.equals("Special Attack"))
                 {
+                    
+                    if(95<=toffla && toffla<=100)
+                    {
                     System.out.println("Critical hit!!!");
                     Fed_HP=Fed_HP-120;
 
@@ -502,30 +531,39 @@ import java.util.Scanner;
                     return false;
                 }
                 
-            }  
-
-            if(moves.equals("Attack 1"))
-            {
-                return PlAttack2(toffla, 10, 8);
+                }  
+            
+                else if(moves.equals("Attack 1"))
+                {
+                    return PlAttack2(toffla, 10, 8);
+                }
+                
+                else if(moves.equals("Attack 2"))
+                {
+                    return PlAttack2(toffla, 25, 14);
+                }
+                
+                else if(moves.equals("Attack 3"))
+                {
+                    return PlAttack2(toffla, 40, 18);
+                }
+                
+                else if(moves.equals("Attack 4"))
+                {
+                    return PlAttack2(toffla, 50, 24);
+                }
+                else if(moves.equals("Stats") || moves.equals("<Stats>") || moves.equals("stats") || moves.equals("<stats>"))
+                {
+                    Stats();
+                    continue;
+                }
+                else
+                {
+                    System.out.println("Invalid input!!!");
+                    continue;
+                }
+            
             }
-
-            if(moves.equals("Attack 2"))
-            {
-                return PlAttack2(toffla, 25, 14);
-            }
-
-            if(moves.equals("Attack 3"))
-            {
-                return PlAttack2(toffla, 40, 18);
-            }
-
-            if(moves.equals("Attack 4"))
-            {
-                return PlAttack2(toffla, 50, 24);
-            }
-
-            return false;
-
         }
         //Andra bottens method för attacker
         static boolean Fed_Attacks()
