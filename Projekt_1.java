@@ -188,11 +188,18 @@ import java.util.Scanner;
             }
 
             String End = """
-                    
+                   ----------------------------------------------------------
                         Congratulations!!! You've completed the game!!!
                    You are now officially the king of the southside of Rondua
-                   
-
+                                          Credits
+                        Executive Producer       Yoel Habtit
+                                    Editor       Yoel Habtit
+                                    Writer       Yoel Habtit
+                                    Script       Yoel Habtit
+                                       Opp       Antoni Aziza
+                                    Snitch       Arda Yildirim
+                                       Fed       Adam Alsaadi
+                  -----------------------------------------------------------
                     """;
             System.out.println(End);
 
@@ -237,6 +244,7 @@ import java.util.Scanner;
                             break;
                         }
                         catch (InputMismatchException ex) {
+                            System.out.println("Invalid input!!!");
                             Laeeb.nextLine();
                             continue;
                         }
